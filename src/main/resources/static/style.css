@@ -1,0 +1,37 @@
+body{
+	background-color: #803500;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.container {
+	margin-top: 50px;
+    border-radius: 5px;
+    padding: 40px;
+    background-image: url("coffee.jpg");
+    background-size: cover;
+}
+
+/* Create two columns that float next to eachother */
+.column {
+    float: left;
+    width: 50%;
+    margin-top: 6px;
+    padding: 20px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+@media screen and (max-width: 600px) {
+    .column, input[type=submit] {
+        width: 100%;
+        margin-top: 0;
+    }
+}
