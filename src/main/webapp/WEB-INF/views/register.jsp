@@ -9,18 +9,18 @@
 <title>Registration Page</title>
 <link rel="stylesheet" href="style.css">
 <script type="text/javascript">
-      // Form validation code will come here.
+      //Form validation currently only for firstname,lastname, email and phone number.
       function validate()
       {
     	  var a = document.forms["myForm"]["name"].value;
     	  if (a == "" || a.length < 2 || a[0] != a[0].toUpperCase()) {
-    	      alert("Please enter valid name.");
+    	      alert("Please enter valid name(Xxxxxx).");
     	      return false;
     	  }
     	  
     	  var b = document.forms["myForm"]["lastname"].value;
     	  if (b == "" || b.length < 2 || b[0] != b[0].toUpperCase()) {
-    	      alert("Please enter valid last name.");
+    	      alert("Please enter valid last name(Xxxxxx).");
     	      return false;
     	  }
     	  
