@@ -22,6 +22,16 @@ body{
     padding: 20px;
 }
 
+table, th, td {
+	margin-top: 40px;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 15px;
+}
+
 /* Clear floats after the columns */
 .row:after {
     content: "";

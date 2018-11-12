@@ -8,6 +8,38 @@
 <meta charset="UTF-8">
 <title>Registration Page</title>
 <link rel="stylesheet" href="style.css">
+<script type="text/javascript">
+      // Form validation code will come here.
+      function validate()
+      {
+    	  var a = document.forms["myForm"]["name"].value;
+    	  if (a == "" || a.length < 2 || a[0] != a[0].toUpperCase()) {
+    	      alert("Please enter valid name.");
+    	      return false;
+    	  }
+    	  
+    	  var b = document.forms["myForm"]["lastname"].value;
+    	  if (b == "" || b.length < 2 || b[0] != b[0].toUpperCase()) {
+    	      alert("Please enter valid last name.");
+    	      return false;
+    	  }
+    	  
+    	  var c = document.forms["myForm"]["email"].value;
+    	  atpos = c.indexOf("@");
+    	  dotpos = c.lastIndexOf(".");
+    	  if (c == "" || atpos < 1 || ( dotpos - atpos < 2 )) {
+    	      alert("Please provide email address(##@mail.com).");
+    	      return false;
+    	  }
+    	  
+    	  var d = document.forms["myForm"]["number"].value;
+    	  if (d == "" || (d.indexOf("-") !== 3 || d.lastIndexOf("-") !== 7)) {
+    	      alert("Please provide Contact number(###-###-####).");
+    	      return false;
+    	  }
+      }
+</script>
+
 </head>
 <body>
 <div class="container">
@@ -20,31 +52,28 @@
       		<img src="coffeeyummy.jpg" style="width:60%">
     	</div>
 		<div class="column">
-			<form action="/user" method="post">
-				<h3 class="form">
-					First Name:<br> 
-					<input name="name"/>
-				</h3>	
-				<h3 class="form">
-					Last Name:<br>
-					<input name="lastname"/>
-				</h3>
-				<h3 class="form">
-					Email:<br> 
-					<input name="email"/>
-				</h3>
-				<h3 class="form">
-					Phone Number:<br> 
-					<input name="number"/>
-				</h3>
-				<h3 class="form">
-					Create Password: (At least 1 lowercase and 1 uppercase letter - 8 total characters )<br> 
-					<input type="password" name="pword" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"/>
-				</h3>
-				<h3 class="form">
-					<button>Submit</button>
-				</h3>		
+			<form name="myForm" action="/user" onsubmit="return validate()" method="post">
+				<fieldset>
+					<legend>Registration:</legend>
+						<br>
+						Gender:<br>
+  							<input type="radio" name="gender" value="male"> Male<br>
+  							<input type="radio" name="gender" value="female"> Female<br>
+  							<input type="radio" name="gender" value="other"> Other<br><br> 
+						First Name: <input name="name"/><br><br>
+						Last Name: <input name="lastname"/><br><br>
+						Email: <input name="email"/><br><br>
+						Phone Number: <input name="number"/><br><br>
+						Create Password: <input type="password" name="pword" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"/><br><br>
+						Birthdate:
+							<input type="date" name="bday">
+  							<input type="submit" value="Send"><br><br>
+						<button>Submit</button>
+						<br>
+				</fieldset>	
 			</form>
+			<h3><a href="/">go back to home page</a></h3>
+			<h3><a href="/list-coffee">check our inventory</a></h3>
 		</div>
 	</div>
 </div>
