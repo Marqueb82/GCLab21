@@ -21,11 +21,11 @@
 		
 		<table align="center">
 			<tr>
-				<th>Coffee</th><th>Category</th><th>Price</th>
+				<th>Coffee</th><th>Description</th><th>Cost</th>
 			</tr>
 			<c:forEach var="coffee" items="${coffees}">
 				<tr>
-					<td>${coffee.name}</td><td>${coffee.category}</td><td>${coffee.cost}</td>
+					<td>${coffee.name}</td><td>${coffee.description}</td><td>$ ${coffee.price}</td>
 				</tr>
 			</c:forEach>
 		</table>

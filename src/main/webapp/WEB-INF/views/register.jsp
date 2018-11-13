@@ -60,7 +60,7 @@
   							<input type="radio" name="gender" value="male"> Male<br>
   							<input type="radio" name="gender" value="female"> Female<br>
   							<input type="radio" name="gender" value="other"> Other<br><br> 
-						First Name: <input name="name"/><br><br>
+						First Name: <input name="firstname"/><br><br>
 						Last Name: <input name="lastname"/><br><br>
 						Email: <input name="email"/><br><br>
 						Phone Number: <input name="number"/><br><br>

@@ -11,14 +11,14 @@
 <body>
 <div class="container">
 	<div style="text-align:center">
-		<h1>Thank you ${name}</h1>
+		<h1>Thank you ${user.firstname}</h1>
 	</div>
 	<div class="row">
 		<div class="column">
       		<h2>We have your contact info as:</h2>
 			<ul class="form">
-  				<li> Contact number: ${number}</li>
-  				<li> Contact email: ${email}</li>
+  				<li> Contact number: ${user.number}</li>
+  				<li> Contact email: ${user.email}</li>
 			</ul>
 			<h2>Hope to see you soon!</h2>
 			<h3><a href="/register">go back to registration</a></h3>

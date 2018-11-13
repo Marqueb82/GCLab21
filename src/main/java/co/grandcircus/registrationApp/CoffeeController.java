@@ -1,16 +1,20 @@
 package co.grandcircus.registrationApp;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+
+import co.grandcircus.registrationApp.dao.CoffeeDao;
+import co.grandcircus.registrationApp.entity.Coffee;
 
 @Controller
 public class CoffeeController {
 
 	@Autowired
-	CoffeeCatalog coffeeCatalog;
+	private CoffeeDao coffeedao;
 
 	@RequestMapping("/")
 	public ModelAndView index() {
@@ -18,13 +22,9 @@ public class CoffeeController {
 	}
 
 	@RequestMapping("/list-coffee")
-	public ModelAndView listCoffee(@RequestParam(name = "category", required = false) String category) {
-		ModelAndView mav = new ModelAndView("list-coffee");
-		if (category == null || category.isEmpty()) {
-			mav.addObject("coffees", coffeeCatalog.getAllCoffee());
-		} else {
-			mav.addObject("coffees", coffeeCatalog.getCoffeeInCategory(category));
-		}
-		return mav;
+	public ModelAndView listCoffee() {
+		List<Coffee> coffees = coffeedao.findAll();
+		return new ModelAndView("list-coffee", "coffees", coffees);
 	}
+
 }
