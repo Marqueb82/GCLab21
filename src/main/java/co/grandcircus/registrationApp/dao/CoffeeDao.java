@@ -19,4 +19,9 @@ public class CoffeeDao {
 		return jdbcTemplate.query("SELECT * FROM menu_item", new BeanPropertyRowMapper<>(Coffee.class));
 	}
 
+	public Coffee findByName(String name) {
+		return jdbcTemplate.queryForObject("SELECT * FROM menu_item WHERE name = ?",
+				new BeanPropertyRowMapper<>(Coffee.class), name);
+	}
+
 }
