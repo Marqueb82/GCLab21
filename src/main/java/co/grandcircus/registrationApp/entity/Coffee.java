@@ -1,8 +1,16 @@
 package co.grandcircus.registrationApp.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Coffee {
 
-	private long id; // int
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id; // int
 	private String name; // varchar(80)
 	private String description; // varchar(80)
 	private double price; // double

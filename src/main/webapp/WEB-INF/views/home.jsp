@@ -14,9 +14,10 @@
 		<h1 >Welcome to GC COFFEE</h1>
 		<h3><a href="/register">Register</a></h3>
 		<h3><a href="/list-coffee">See what we have!!</a></h3>
-		<form action="/search-coffee">Search our Products: <input name="name"/></form>
+		<!-- <form action="/search-coffee">Search our Products: <input name="name"/></form> -->
 		<p>☕☕☕</p>
 		<img src="critter.gif" style="width:40%">
+		<h2><a href="/admin">GC COFFEE EMPLOYEES</a></h2>
 	</div>
 	
 

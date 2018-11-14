@@ -13,7 +13,7 @@
 		<h2>Selected item:</h2>
 		<h3>This item is ${coffee.name}</h3>
 		<h3>Item cost is $ ${coffee.price}</h3>
-		<h3>Customers description ${coffee.description}</h3>
+		<h3>Customers description: ${coffee.description}</h3>
 		
 		<img src="giphy.gif" style="width:40%">
 		

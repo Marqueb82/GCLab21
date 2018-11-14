@@ -12,18 +12,17 @@ import co.grandcircus.registrationApp.entity.Coffee;
 
 @Repository
 @Transactional
-public class CoffeeDao {
+public class EmployeeDao {
 
 	@PersistenceContext
-	EntityManager em;
+	private EntityManager em;
 
 	public List<Coffee> findAll() {
 		return em.createQuery("From Coffee", Coffee.class).getResultList();
 	}
 
-	public List<Coffee> findByName(String name) {
-		return em.createQuery("FROM Coffee WHERE name = :name", Coffee.class).setParameter("name", name)
-				.getResultList();
+	public Coffee findById(Long id) {
+		return em.find(Coffee.class, id);
 	}
 
 	public void create(Coffee coffee) {
@@ -38,5 +37,4 @@ public class CoffeeDao {
 		Coffee coffee = em.getReference(Coffee.class, id);
 		em.remove(coffee);
 	}
-
 }
