@@ -9,10 +9,10 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
- 
+ ${message }
 	<div style="text-align:center" class="container">
+		<%@include file="partial/header.jsp" %>
 		<h1 >Welcome to GC COFFEE</h1>
-		<h3><a href="/register">Register</a></h3>
 		<h3><a href="/list-coffee">See what we have!!</a></h3>
 		<!-- <form action="/search-coffee">Search our Products: <input name="name"/></form> -->
 		<p>☕☕☕</p>

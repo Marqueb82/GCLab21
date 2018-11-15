@@ -13,7 +13,7 @@
 	<div class="container">
 	
 	<h2>Edit product screen:</h2>
-	<form name="myForm" action="/search" method="post">
+	<form name="myForm" action="/menu/edit" method="post">
 		<fieldset>
 			<legend>Product:</legend>
 				<br> 

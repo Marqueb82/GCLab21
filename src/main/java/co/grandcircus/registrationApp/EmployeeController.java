@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -23,26 +22,21 @@ public class EmployeeController {
 		return new ModelAndView("admin");
 	}
 
-	@RequestMapping("menu")
+	@RequestMapping("/menu")
 	public ModelAndView employeeAccess() {
 		List<Coffee> coffees = emp.findAll();
 		return new ModelAndView("menu", "coffees", coffees);
 	}
 
-	@RequestMapping("empAdd")
+	@RequestMapping("/empAdd")
 	public ModelAndView employeeAddScreen() {
 		return new ModelAndView("empAdd");
 	}
 
-	@PostMapping("menu")
+	@RequestMapping("/menu/add")
 	public ModelAndView addCoffee(Coffee coffee) {
 		emp.create(coffee);
 		return new ModelAndView("redirect:/menu");
-	}
-
-	@RequestMapping("/search")
-	public ModelAndView employeeSearch() {
-		return new ModelAndView("search");
 	}
 
 	@RequestMapping("empEdit")
@@ -52,19 +46,14 @@ public class EmployeeController {
 		return mav;
 	}
 
-	@PostMapping("/search")
+	@RequestMapping("/menu/edit")
 	public ModelAndView editCoffeeItem(Coffee coffee, @RequestParam("id") Long id) {
 		coffee.setId(id);
 		emp.update(coffee);
-		return new ModelAndView("search");
+		return new ModelAndView("redirect:/menu");
 	}
 
-	@RequestMapping("/deletesearch")
-	public ModelAndView delete() {
-		return new ModelAndView("deletesearch");
-	}
-
-	@PostMapping("/deletesearch")
+	@RequestMapping("/menu/delete")
 	public ModelAndView deletedItem(@RequestParam("id") Long id) {
 		emp.delete(id);
 		return new ModelAndView("redirect:/menu");

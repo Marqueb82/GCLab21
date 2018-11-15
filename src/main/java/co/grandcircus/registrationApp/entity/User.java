@@ -11,20 +11,18 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id; // int
-	private String firstname; // varchar(80)
-	private String lastname; // varchar(80)
-	private String number; // varchar(80)
-	private String email; // double
+	private String customername; // varchar(80)
+	private String username; // varchar(80)
+	private String password; // varchar(80)
 
 	public User() {
 	}
 
-	public User(long id, String firstname, String lastname, String number, String email) {
+	public User(long id, String firstname, String lastname, String number) {
 		this.id = id;
-		this.firstname = firstname;
-		this.lastname = lastname;
-		this.number = number;
-		this.email = email;
+		this.customername = firstname;
+		this.username = lastname;
+		this.password = number;
 	}
 
 	public long getId() {
@@ -35,42 +33,34 @@ public class User {
 		this.id = id;
 	}
 
-	public String getFirstname() {
-		return firstname;
+	public String getCustomername() {
+		return customername;
 	}
 
-	public void setFirstname(String firstname) {
-		this.firstname = firstname;
+	public void setCustomername(String customername) {
+		this.customername = customername;
 	}
 
-	public String getLastname() {
-		return lastname;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setLastname(String lastname) {
-		this.lastname = lastname;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
-	public String getNumber() {
-		return number;
+	public String getPassword() {
+		return password;
 	}
 
-	public void setNumber(String number) {
-		this.number = number;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", firstname=" + firstname + ", lastname=" + lastname + ", number=" + number
-				+ ", email=" + email + "]";
+		return "User [id=" + id + ", customername=" + customername + ", username=" + username + ", password=" + password
+				+ "]";
 	}
 
 }

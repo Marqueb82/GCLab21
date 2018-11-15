@@ -13,7 +13,7 @@
 	<div class="container">
 	
 	<h2>Add new product screen:</h2>
-	<form name="myForm" action="/menu" method="post">
+	<form name="myForm" action="/menu/add" method="post">
 		<fieldset>
 			<legend>Product:</legend>
 				<br> 

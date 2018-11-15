@@ -1,6 +1,7 @@
 package co.grandcircus.registrationApp.dao;
 
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
@@ -17,5 +18,15 @@ public class UserDao {
 
 	public void create(User user) {
 		em.persist(user);
+	}
+
+	public User findByUsername(String username) {
+		try {
+			return em.createQuery("FROM User WHERE username = :username", User.class).setParameter("username", username)
+					.getSingleResult();
+		} catch (NoResultException ex) {
+			// No user with that username found.
+			return null;
+		}
 	}
 }

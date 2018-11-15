@@ -26,6 +26,10 @@ public class CoffeeDao {
 				.getResultList();
 	}
 
+	public Coffee findById(Long id) {
+		return em.find(Coffee.class, id);
+	}
+
 	public void create(Coffee coffee) {
 		em.persist(coffee);
 	}

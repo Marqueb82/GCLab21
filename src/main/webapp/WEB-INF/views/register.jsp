@@ -12,36 +12,25 @@
       //Form validation currently only for firstname,lastname, email and phone number.
       function validate()
       {
-    	  var a = document.forms["myForm"]["name"].value;
+    	  var a = document.forms["myForm"]["customername"].value;
     	  if (a == "" || a.length < 2 || a[0] != a[0].toUpperCase()) {
     	      alert("Please enter valid name(Xxxxxx).");
     	      return false;
     	  }
     	  
-    	  var b = document.forms["myForm"]["lastname"].value;
-    	  if (b == "" || b.length < 2 || b[0] != b[0].toUpperCase()) {
-    	      alert("Please enter valid last name(Xxxxxx).");
+    	  var b = document.forms["myForm"]["password"].value;
+    	  if (b == "") {
+    	      alert("Please enter password");
     	      return false;
     	  }
     	  
-    	  var c = document.forms["myForm"]["email"].value;
-    	  atpos = c.indexOf("@");
-    	  dotpos = c.lastIndexOf(".");
-    	  if (c == "" || atpos < 1 || ( dotpos - atpos < 2 )) {
-    	      alert("Please provide email address(##@mail.com).");
-    	      return false;
-    	  }
-    	  
-    	  var d = document.forms["myForm"]["number"].value;
-    	  if (d == "" || (d.indexOf("-") !== 3 || d.lastIndexOf("-") !== 7)) {
-    	      alert("Please provide Contact number(###-###-####).");
-    	      return false;
-    	  }
       }
 </script>
 
 </head>
 <body>
+<%@include file="partial/header.jsp" %>
+${message }
 <div class="container">
 	<div style="text-align:center">
 		<h1>Thank you for Visiting</h1>
@@ -55,19 +44,12 @@
 			<form name="myForm" action="/user" onsubmit="return validate()" method="post">
 				<fieldset>
 					<legend>Registration:</legend>
+						<br> 
+						Customer Name: <input name="customername"/><br><br>
+						User Name: <input name="username"/><br><br>
+						Create Password: <input type="password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"/><br><br>
+						Confirm Password: <input type="password" name="confirm-password"/><br><br>
 						<br>
-						Gender:<br>
-  							<input type="radio" name="gender" value="male"> Male<br>
-  							<input type="radio" name="gender" value="female"> Female<br>
-  							<input type="radio" name="gender" value="other"> Other<br><br> 
-						First Name: <input name="firstname"/><br><br>
-						Last Name: <input name="lastname"/><br><br>
-						Email: <input name="email"/><br><br>
-						Phone Number: <input name="number"/><br><br>
-						Create Password: <input type="password" name="pword" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"/><br><br>
-						Birthdate:
-							<input type="date" name="bday">
-  							<input type="submit" value="Send"><br><br>
 						<button>Submit</button>
 						<br>
 				</fieldset>	
