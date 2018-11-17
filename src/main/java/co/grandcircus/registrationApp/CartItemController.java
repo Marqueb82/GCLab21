@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import co.grandcircus.registrationApp.dao.CartItemDao;
 import co.grandcircus.registrationApp.dao.CoffeeDao;
@@ -29,13 +30,35 @@ public class CartItemController {
 	}
 
 	@RequestMapping("/cart/add")
-	public ModelAndView cartTest(@RequestParam("id") Long id) {
+	public ModelAndView cartTest(@RequestParam("id") Long id, RedirectAttributes redir) {
 		Coffee coffee = coffeeDao.findById(id);
-		CartItem c = new CartItem();
-		c.setQuantity(1);
-		c.setCoffee(coffee);
-		cartItemDao.create(c);
-		return new ModelAndView("redirect:/viewcart");
+		CartItem cartitem = new CartItem();
+
+		for (CartItem c : cartItemDao.cartItems()) {
+			if (c.getCoffee().getId() == id) {
+				Integer quantity = c.getQuantity() + 1;
+				c.setQuantity(quantity);
+				cartItemDao.update(c);
+				return new ModelAndView("redirect:/list-coffee");
+			}
+		}
+
+		cartitem.setQuantity(1);
+		cartitem.setCoffee(coffee);
+		cartItemDao.create(cartitem);
+		redir.addFlashAttribute("message", "Item added to Cart");
+		return new ModelAndView("redirect:/list-coffee");
+	}
+
+	@RequestMapping("/cart/delete")
+	public ModelAndView removeItem(@RequestParam("id") Long id, RedirectAttributes redir) {
+
+		Coffee coffee = coffeeDao.findById(id);
+		cartItemDao.delete(coffee.getId());
+		redir.addFlashAttribute("message", "Item deleted from Cart");
+
+		return new ModelAndView("redirect:/list-coffee");
+
 	}
 
 }

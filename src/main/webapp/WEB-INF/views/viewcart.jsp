@@ -18,13 +18,14 @@ ${message }
 	</div>
 		<div class="row">
 			<div class="column">
-			<form>
+			<form method="get" action="/viewcart">
 				<table align="center">
 					<c:forEach var="cartitem" items="${cartitems}">
 					<tr>
 						<td>Qty: ${cartitem.quantity}</td>
 						<td>Item: ${cartitem.coffee.name}</td>
 						<td>Price: ${cartitem.coffee.price}</td>
+						<td><a href="/cart/delete?id=${cartitem.coffee.id }" class="btn btn-secondary mb-2">Delete</a></td>
 					</tr>
 					</c:forEach>
 				</table>
@@ -32,8 +33,9 @@ ${message }
     		</div>
 		<div class="column">	
 			<img src="giphy.gif" style="width:70%">
-		<h3><a href="/register">go back to registration</a></h3>
-		<h3><a href="/">go back to home page</a></h3>
+			<h3><a href="/list-coffee">go to menu</a></h3>
+		<h3><a href="/register">go to registration</a></h3>
+		<h3><a href="/">go to home page</a></h3>
 		</div>
 	</div>
 </div>

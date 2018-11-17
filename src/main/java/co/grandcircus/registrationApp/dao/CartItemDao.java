@@ -9,6 +9,7 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Repository;
 
 import co.grandcircus.registrationApp.entity.CartItem;
+import co.grandcircus.registrationApp.entity.Coffee;
 
 @Repository
 @Transactional
@@ -22,7 +23,15 @@ public class CartItemDao {
 	}
 
 	public List<CartItem> cartItems() {
-		return em.createQuery("From CartItem", CartItem.class).getResultList();
+		return em.createQuery("FROM CartItem", CartItem.class).getResultList();
+	}
+
+	public CartItem findById(Long id) {
+		return em.find(CartItem.class, id);
+	}
+
+	public Coffee findCoffeeId(Long id) {
+		return em.find(Coffee.class, id);
 	}
 
 	public void update(CartItem cartItem) {
