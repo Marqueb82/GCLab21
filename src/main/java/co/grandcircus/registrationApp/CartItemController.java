@@ -52,20 +52,11 @@ public class CartItemController {
 		Coffee coffee = coffeeDao.findById(id);
 		CartItem cartitem = new CartItem();
 
-		for (CartItem c : cartItemDao.cartItems()) {
-			if (c.getCoffee().getId() == id) {
-				Integer quantity = c.getQuantity() + 1;
-				c.setQuantity(quantity);
-				cartItemDao.update(c);
-				return new ModelAndView("redirect:/viewcart");
-			}
-		}
-
 		cartitem.setQuantity(1);
 		cartitem.setCoffee(coffee);
 		cartitem.setUser(user);
 		System.out.println(user.toString());
-		cartItemDao.update(cartitem);
+		cartItemDao.create(cartitem);
 		redir.addFlashAttribute("message", "Item added to Cart");
 		return new ModelAndView("redirect:/viewcart");
 	}
