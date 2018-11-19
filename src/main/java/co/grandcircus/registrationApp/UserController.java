@@ -41,7 +41,7 @@ public class UserController {
 		session.setAttribute("user", user);
 		redir.addFlashAttribute("message", "Welcome Back");
 
-		return new ModelAndView("redirect:/");
+		return new ModelAndView("redirect:/list-coffee");
 
 	}
 

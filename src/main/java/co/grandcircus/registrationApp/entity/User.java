@@ -1,9 +1,12 @@
 package co.grandcircus.registrationApp.entity;
 
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class User {
@@ -15,21 +18,32 @@ public class User {
 	private String username; // varchar(80)
 	private String password; // varchar(80)
 
+	@OneToMany(mappedBy = "user")
+	private Set<CartItem> cartItem;
+
 	public User() {
 	}
 
-	public User(long id, String firstname, String lastname, String number) {
+	public User(Long id, String firstname, String lastname, String number) {
 		this.id = id;
 		this.customername = firstname;
 		this.username = lastname;
 		this.password = number;
 	}
 
-	public long getId() {
+	public Set<CartItem> getCartItem() {
+		return cartItem;
+	}
+
+	public void setCartItem(Set<CartItem> cartItem) {
+		this.cartItem = cartItem;
+	}
+
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

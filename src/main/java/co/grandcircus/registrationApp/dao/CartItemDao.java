@@ -34,6 +34,11 @@ public class CartItemDao {
 		return em.find(Coffee.class, id);
 	}
 
+	public List<CartItem> findForUserId(Long id) {
+		return em.createQuery("FROM CartItem WHERE user.id = :userid", CartItem.class).setParameter("userid", id)
+				.getResultList();
+	}
+
 	public void update(CartItem cartItem) {
 		em.merge(cartItem);
 	}

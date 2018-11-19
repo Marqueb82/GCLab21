@@ -15,6 +15,9 @@ public class CartItem {
 	private Integer quantity;
 
 	@ManyToOne
+	private User user;
+
+	@ManyToOne
 	private Coffee coffee;
 
 	public CartItem() {
@@ -24,6 +27,14 @@ public class CartItem {
 		this.id = id;
 		this.quantity = quantity;
 		this.coffee = coffee;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	public Long getId() {

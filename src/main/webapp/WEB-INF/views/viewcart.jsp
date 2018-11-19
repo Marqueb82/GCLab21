@@ -24,8 +24,7 @@ ${message }
 					<tr>
 						<td>Qty: ${cartitem.quantity}</td>
 						<td>Item: ${cartitem.coffee.name}</td>
-						<td>Price: ${cartitem.coffee.price}</td>
-						<td><a href="/cart/delete?id=${cartitem.coffee.id }" class="btn btn-secondary mb-2">Delete</a></td>
+						<td>Price: $ ${cartitem.coffee.price}</td>
 					</tr>
 					</c:forEach>
 				</table>

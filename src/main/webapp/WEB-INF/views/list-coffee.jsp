@@ -14,7 +14,7 @@ ${message }
 <div style="text-align:center" class="container">
 	<h1>Coffee List</h1>
 	
-		<form method="get" action="/viewcart">
+		<form method="post" action="/cart/add">
 		<table align="center">
 			<tr>
 				<th>Coffee</th><th>Description</th><th>Cost</th><th>Item Select</th>
@@ -22,7 +22,7 @@ ${message }
 			<c:forEach var="coffee" items="${coffees}">
 				<tr>
 					<td>${coffee.name}</td><td>${coffee.description}</td><td>$ ${coffee.price}</td>
-					<td><a href="/cart/add?id=${coffee.id }" class="btn btn-secondary mb-2">Add</a></td>
+					<td> <button name="id" type="submit" value="${coffee.id}">Select</button></td>
 				</tr>
 			</c:forEach>
 		</table>
